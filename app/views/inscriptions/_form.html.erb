@@ -1,0 +1,32 @@
+<%= form_with(model: inscription) do |form| %>
+  <% if inscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inscription.errors.count, "error") %> prohibited this inscription from being saved:</h2>
+
+      <ul>
+        <% inscription.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= collection_select(:inscription, :user_id, @usersForSelect, :id, :email)%>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_id %>
+    <%= collection_select(:inscription, :event_id, @eventsForSelect, :id, :event_name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inscription_date %>
+    <%= form.datetime_select :inscription_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

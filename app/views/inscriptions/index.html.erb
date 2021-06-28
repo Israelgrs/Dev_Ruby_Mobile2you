@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Registros de quem irá comparecer aos eventos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Usuário</th>
+      <th>Evento</th>
+      <th>Data da confirmação</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inscriptions.each do |inscription| %>
+      <tr>
+        <td><%= inscription.user_id %></td>
+        <td><%= inscription.event_id %></td>
+        <td><%= inscription.inscription_date %></td>
+        <td><%= link_to 'Ver', inscription %></td>
+        <td><%= link_to 'Editar', edit_inscription_path(inscription) %></td>
+        <td><%= link_to 'Excluir', inscription, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova confirmação', new_inscription_path %>
+<%= link_to 'Home', home_index_path %>

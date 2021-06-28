@@ -1,8 +1,8 @@
 require "application_system_test_case"
 
-class RegistrationsTest < ApplicationSystemTestCase
+class InscriptionsTest < ApplicationSystemTestCase
   setup do
-    @registration = registrations(:one)
+    @inscription = inscriptions(:one)
   end
 
   test "visiting the index" do

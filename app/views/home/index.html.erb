@@ -48,18 +48,18 @@
   </thead>
 
   <tbody>
-    <% @registrations.each do |registration| %>
+    <% @inscriptions.each do |inscription| %>
       <tr>
-        <td><%= registration.user_id %></td>
-        <td><%= registration.event_id %></td>
-        <td><%= registration.registration_date %></td>
-        <td><%= link_to 'Ver', registration %></td>
-        <td><%= link_to 'Editar', edit_registration_path(registration) %></td>
+        <td><%= inscription.user_id %></td>
+        <td><%= inscription.event_id %></td>
+        <td><%= inscription.inscription_date %></td>
+        <td><%= link_to 'Ver', inscription %></td>
+        <td><%= link_to 'Editar', edit_inscription_path(inscription) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to 'Inscrever-se em um evento', new_registration_path %>
+<%= link_to 'Inscrever-se em um evento', new_inscription_path %>
 <br>
 <h1 text align="center">Veja alguns dos prêmios já sorteados</h1>
 <h1>Prêmios</h1>

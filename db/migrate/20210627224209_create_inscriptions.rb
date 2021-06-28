@@ -1,9 +1,9 @@
-class CreateRegistrations < ActiveRecord::Migration[6.1]
+class CreateInscriptions < ActiveRecord::Migration[6.1]
   def change
-    create_table :registrations do |t|
+    create_table :inscriptions do |t|
       t.references :user, null: false, foreign_key: true
       t.references :event, null: false, foreign_key: true
-      t.datetime :registration_date
+      t.datetime :inscription_date
 
       t.timestamps
     end

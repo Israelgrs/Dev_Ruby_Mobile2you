@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   #Here is the methods to bring all the registers in the tables to the Home Page
   def index
     getEvents
-    getRegistrations
+    getInscriptions
     getAwards
     getEventsParticipations
   end
@@ -12,8 +12,8 @@ class HomeController < ApplicationController
     @events = Event.all
   end
   
-  def getRegistrations
-    @registrations = Registration.all
+  def getInscriptions
+    @inscriptions = Inscription.all
   end
   
   def getAwards

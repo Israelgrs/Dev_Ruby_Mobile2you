@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 2021_06_27_235508) do
     t.index ["user_id"], name: "index_events_participations_on_user_id"
   end
 
-  create_table "registrations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "inscriptions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
-    t.datetime "registration_date"
+    t.datetime "inscription_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_registrations_on_event_id"
-    t.index ["user_id"], name: "index_registrations_on_user_id"
+    t.index ["event_id"], name: "index_inscriptions_on_event_id"
+    t.index ["user_id"], name: "index_inscriptions_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -69,6 +69,6 @@ ActiveRecord::Schema.define(version: 2021_06_27_235508) do
   add_foreign_key "awards", "users"
   add_foreign_key "events_participations", "events"
   add_foreign_key "events_participations", "users"
-  add_foreign_key "registrations", "events"
-  add_foreign_key "registrations", "users"
+  add_foreign_key "inscriptions", "events"
+  add_foreign_key "inscriptions", "users"
 end
