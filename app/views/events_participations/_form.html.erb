@@ -1,0 +1,32 @@
+<%= form_with(model: events_participation) do |form| %>
+  <% if events_participation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(events_participation.errors.count, "error") %> prohibited this events_participation from being saved:</h2>
+
+      <ul>
+        <% events_participation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= collection_select(:events_participation, :user_id, @usersForSelectEvents, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_id %>
+    <%= collection_select(:events_participation, :event_id, @eventsForSelectParticipation, :id, :event_name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :was_present %>
+    <%= form.check_box :was_present %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
