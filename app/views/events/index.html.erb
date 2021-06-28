@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<h1>Eventos</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Event name</th>
-      <th>Event date</th>
-      <th>Event place</th>
+      <th>Nome do Evento</th>
+      <th>Data do Evento</th>
+      <th>Local do Evento</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +18,9 @@
         <td><%= event.event_name %></td>
         <td><%= event.event_date %></td>
         <td><%= event.event_place %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', event %></td>
+        <td><%= link_to 'Editar', edit_event_path(event) %></td>
+        <td><%= link_to 'Excluir', event, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to 'Criar novo Evento', new_event_path %>
+<%= link_to 'Home', home_index_path %>

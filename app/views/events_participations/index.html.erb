@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events Participations</h1>
+<h1>Participações nos Eventos</h1>
 
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Event</th>
-      <th>Was present</th>
+      <th>Usuário</th>
+      <th>Evento</th>
+      <th>Esteve presente?</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,14 +18,14 @@
         <td><%= events_participation.user_id %></td>
         <td><%= events_participation.event_id %></td>
         <td><%= events_participation.was_present %></td>
-        <td><%= link_to 'Show', events_participation %></td>
-        <td><%= link_to 'Edit', edit_events_participation_path(events_participation) %></td>
-        <td><%= link_to 'Destroy', events_participation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', events_participation %></td>
+        <td><%= link_to 'Editar', edit_events_participation_path(events_participation) %></td>
+        <td><%= link_to 'Excluir', events_participation, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
-<%= link_to 'New Events Participation', new_events_participation_path %>
+<%= link_to 'Nova Participação em Evento', new_events_participation_path %>
+<%= link_to 'Home', home_index_path %>

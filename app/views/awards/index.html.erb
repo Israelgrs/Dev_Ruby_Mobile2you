@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Awards</h1>
+<h1>Prêmios</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Event</th>
-      <th>Award name</th>
-      <th>User</th>
+      <th>Evento</th>
+      <th>Nome do Prêmio</th>
+      <th>Ganhador do prêmio</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +18,9 @@
         <td><%= award.event_id %></td>
         <td><%= award.award_name %></td>
         <td><%= award.user_id %></td>
-        <td><%= link_to 'Show', award %></td>
-        <td><%= link_to 'Edit', edit_award_path(award) %></td>
-        <td><%= link_to 'Destroy', award, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', award %></td>
+        <td><%= link_to 'Editar', edit_award_path(award) %></td>
+        <td><%= link_to 'Excluir', award, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Award', new_award_path %>
+<%= link_to 'Novo Prêmio', new_award_path %>
+<%= link_to 'Home', home_index_path %>

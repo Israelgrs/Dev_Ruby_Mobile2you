@@ -1,33 +1,114 @@
+<% if user_signed_in? %>
+    <h5 text align="right"><%= current_user.email %></h5>
+    <h6 text align="right"><%= link_to "Sair", destroy_user_session_path, :method => :delete %></h6>
+<% else %>
+    <h6 text align="right"><%= link_to "Cadastrar", user_registration_path %></h6>
+    <h6 text align="right"><%= link_to "Logar", new_user_session_path %></h6>
+<% end %>
+  
+
 <h1 text align="center">Estes são os eventos para os quais você pode comparecer</h1>
 
-<p id="notice"><%= notice %></p>
-
-<h1>Events</h1>
-
+<h1>Eventos</h1>
 <table>
   <thead>
     <tr>
-      <th>Event name</th>
-      <th>Event date</th>
-      <th>Event place</th>
+      <th>Nome do evento</th>
+      <th>Data do Evento</th>
+      <th>Local do Evento</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @events.each do |event| %>
       <tr>
         <td><%= event.event_name %></td>
         <td><%= event.event_date %></td>
         <td><%= event.event_place %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', event %></td>
+        <td><%= link_to 'Editar', edit_event_path(event) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= link_to 'Criar novo Evento', new_event_path %>
+<br/>
+<h1 text align="center">Veja Quem irá comparecer a estes Eventos</h1>
 
+<h1>Inscrições</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Usuário</th>
+      <th>Evento</th>
+      <th>Data da confirmação</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @registrations.each do |registration| %>
+      <tr>
+        <td><%= registration.user_id %></td>
+        <td><%= registration.event_id %></td>
+        <td><%= registration.registration_date %></td>
+        <td><%= link_to 'Ver', registration %></td>
+        <td><%= link_to 'Editar', edit_registration_path(registration) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Inscrever-se em um evento', new_registration_path %>
 <br>
+<h1 text align="center">Veja alguns dos prêmios já sorteados</h1>
+<h1>Prêmios</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Evento</th>
+      <th>Nome do prêmio</th>
+      <th>Ganhador do prêmio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<%= link_to 'New Registration', new_registration_path %>
+  <tbody>
+    <% @awards.each do |award| %>
+      <tr>
+        <td><%= award.event_id %></td>
+        <td><%= award.award_name %></td>
+        <td><%= award.user_id %></td>
+        <td><%= link_to 'Ver', award %></td>
+        <td><%= link_to 'Editar', edit_award_path(award) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Novo Prêmio', new_award_path %>
+<br>
+<h1 text align="center">Quem compareceu aos Eventos</h1>
+<h1>Participações nos Eventos</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Usuário</th>
+      <th>Evento</th>
+      <th>Esteve presente?</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events_participations.each do |events_participation| %>
+      <tr>
+        <td><%= events_participation.user_id %></td>
+        <td><%= events_participation.event_id %></td>
+        <td><%= events_participation.was_present %></td>
+        <td><%= link_to 'Ver', events_participation %></td>
+        <td><%= link_to 'Editar', edit_events_participation_path(events_participation) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Nova Participação em Evento', new_events_participation_path %>
