@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= collection_select(:award, :user_id, @usersForSelectInAwards, :id, :name, {:prompt => "Selecione um usuário"}) %>
+    <%= collection_select(:award, :user_id, @usersForSelectInAwards, :id, :email, {:prompt => "Selecione um usuário"}) %>
   </div>
 
   <div class="actions">
