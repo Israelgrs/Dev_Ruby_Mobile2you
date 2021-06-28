@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
+# The controller class for awards
 class AwardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_award, only: %i[ show edit update destroy ]
+  before_action :set_award, only: %i[show edit update destroy]
 
   # GET /awards or /awards.json
   def index
@@ -8,8 +11,7 @@ class AwardsController < ApplicationController
   end
 
   # GET /awards/1 or /awards/1.json
-  def show
-  end
+  def show; end
 
   # GET /awards/new
   def new
@@ -30,7 +32,7 @@ class AwardsController < ApplicationController
 
     respond_to do |format|
       if @award.save
-        format.html { redirect_to @award, notice: "Award was successfully created." }
+        format.html { redirect_to @award, notice: 'Award was successfully created.' }
         format.json { render :show, status: :created, location: @award }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +45,7 @@ class AwardsController < ApplicationController
   def update
     respond_to do |format|
       if @award.update(award_params)
-        format.html { redirect_to @award, notice: "Award was successfully updated." }
+        format.html { redirect_to @award, notice: 'Award was successfully updated.' }
         format.json { render :show, status: :ok, location: @award }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,27 +58,28 @@ class AwardsController < ApplicationController
   def destroy
     @award.destroy
     respond_to do |format|
-      format.html { redirect_to awards_url, notice: "Award was successfully destroyed." }
+      format.html { redirect_to awards_url, notice: 'Award was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_award
-      @award = Award.find(params[:id])
-    end
-    
-    def users_for_select_awards
-      @usersForSelectInAwards = User.all
-    end
-    
-    def events_for_select_awards
-      @eventsForSelectInAwards = Event.all
-    end
 
-    # Only allow a list of trusted parameters through.
-    def award_params
-      params.require(:award).permit(:event_id, :award_name, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_award
+    @award = Award.find(params[:id])
+  end
+
+  def users_for_select_awards
+    @usersForSelectInAwards = User.all
+  end
+
+  def events_for_select_awards
+    @eventsForSelectInAwards = Event.all
+  end
+
+  # Only allow a list of trusted parameters through.
+  def award_params
+    params.require(:award).permit(:event_id, :award_name, :user_id)
+  end
 end

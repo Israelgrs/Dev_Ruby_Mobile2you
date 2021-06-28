@@ -1,6 +1,8 @@
-require "test_helper"
+# frozen_string_literal: true
 
-class RegistrationTest < ActiveSupport::TestCase
+require 'test_helper'
+
+class InscriptionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

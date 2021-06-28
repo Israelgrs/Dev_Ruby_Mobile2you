@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Create the EventsParticipations table
 class CreateEventsParticipations < ActiveRecord::Migration[6.1]
   def change
     create_table :events_participations do |t|

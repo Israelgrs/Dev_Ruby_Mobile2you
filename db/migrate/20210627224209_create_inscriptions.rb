@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Creating the Inscriptions Table
 class CreateInscriptions < ActiveRecord::Migration[6.1]
   def change
     create_table :inscriptions do |t|

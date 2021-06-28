@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class EventsParticipationsController < ApplicationController
-  before_action :set_events_participation, only: %i[ show edit update destroy ]
+  before_action :set_events_participation, only: %i[show edit update destroy]
 
   # GET /events_participations or /events_participations.json
   def index
@@ -7,8 +9,7 @@ class EventsParticipationsController < ApplicationController
   end
 
   # GET /events_participations/1 or /events_participations/1.json
-  def show
-  end
+  def show; end
 
   # GET /events_participations/new
   def new
@@ -29,7 +30,7 @@ class EventsParticipationsController < ApplicationController
 
     respond_to do |format|
       if @events_participation.save
-        format.html { redirect_to @events_participation, notice: "Events participation was successfully created." }
+        format.html { redirect_to @events_participation, notice: 'Events participation was successfully created.' }
         format.json { render :show, status: :created, location: @events_participation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +43,7 @@ class EventsParticipationsController < ApplicationController
   def update
     respond_to do |format|
       if @events_participation.update(events_participation_params)
-        format.html { redirect_to @events_participation, notice: "Events participation was successfully updated." }
+        format.html { redirect_to @events_participation, notice: 'Events participation was successfully updated.' }
         format.json { render :show, status: :ok, location: @events_participation }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,27 +56,28 @@ class EventsParticipationsController < ApplicationController
   def destroy
     @events_participation.destroy
     respond_to do |format|
-      format.html { redirect_to events_participations_url, notice: "Events participation was successfully destroyed." }
+      format.html { redirect_to events_participations_url, notice: 'Events participation was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_events_participation
-      @events_participation = EventsParticipation.find(params[:id])
-    end
 
-    def users_for_select_events
-      @usersForSelectEvents = User.all
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_events_participation
+    @events_participation = EventsParticipation.find(params[:id])
+  end
 
-    def events_for_select_participation
-      @eventsForSelectParticipation = Event.all
-    end
+  def users_for_select_events
+    @usersForSelectEvents = User.all
+  end
 
-    # Only allow a list of trusted parameters through.
-    def events_participation_params
-      params.require(:events_participation).permit(:user_id, :event_id, :was_present)
-    end
+  def events_for_select_participation
+    @eventsForSelectParticipation = Event.all
+  end
+
+  # Only allow a list of trusted parameters through.
+  def events_participation_params
+    params.require(:events_participation).permit(:user_id, :event_id, :was_present)
+  end
 end

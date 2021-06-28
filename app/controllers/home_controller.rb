@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class HomeController < ApplicationController
-  #Here is the methods to bring all the registers in the tables to the Home Page
+  # Here is the methods to bring all the registers in the tables to the Home Page
   def index
     getEvents
     getInscriptions
@@ -8,14 +10,15 @@ class HomeController < ApplicationController
   end
 
   private
+
   def getEvents
     @events = Event.all
   end
-  
+
   def getInscriptions
     @inscriptions = Inscription.all
   end
-  
+
   def getAwards
     @awards = Award.all
   end
@@ -23,10 +26,4 @@ class HomeController < ApplicationController
   def getEventsParticipations
     @events_participations = EventsParticipation.all
   end
-
 end
-
-
-
-
-
